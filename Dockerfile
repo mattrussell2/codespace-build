@@ -1,79 +1,52 @@
-# Use Alpine Linux as the base image
-FROM alpine:latest
+# Use a minimal Ubuntu base image
+FROM ubuntu:jammy
 
-# Set the working directory in the container
-WORKDIR /app
+# Avoid warnings by switching to noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Install only the necessary packages
-# For instance, if you need Python for your application, install it using apk
-# Add '--no-cache' to avoid the index being stored in the container, reducing size
-RUN apk add --no-cache python3 py3-pip
+COPY requirements.txt .
+COPY synth-shell-prompt.config .
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# # Update the apt package list and install Python and R.
+# # Also clean up the apt cache to reduce image size
+RUN apt-get update && apt-get upgrade
+RUN apt-get install -y --no-install-recommends \
+    git \
+    ca-certificates
+#     python3-pip \
+#     cmake \
+#     bc \
+#     r-base \
+#     r-base-dev \
+#     r-cran-lmertest \
+#     r-cran-performance \
+#     r-cran-dplyr \
+#     r-cran-tidyverse \
+#     r-cran-geepack \
+#     r-cran-ggplot2 \
+#     r-cran-emmeans \
+#     r-cran-lme4
+#  && rm -rf /var/lib/apt/lists/*
 
-# Install any needed packages specified in requirements.txt
-#RUN pip3 install pandas
-
-# Make port 80 available to the world outside this container
-EXPOSE 80
-
-# Define environment variable
-ENV NAME World
-
-# Run app.py when the container launches
-CMD ["python3", "app.py"]
-
-
-# FROM mcr.microsoft.com/devcontainers/universal:linux
-
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends software-properties-common 
-# #         man-db
-# # RUN apt-get -y install --no-install-recommends \
-# #         libcurl4-openssl-dev \
-# #         libzip-dev \
-# #         libssl-dev \
-# #         libxml2-dev \
-# #         libxt6 \
-# #         apt-utils \
-# #         git \
-# #         openssh-client \
-# #         gnupg2 \
-# #         iproute2 \
-# #         procps \
-# #         lsof \
-# #         htop \
-# #         net-tools \
-# #         psmisc \
-# #         curl \
-# #         wget \
-# #         rsync \
-# #         ca-certificates \
-# #         unzip \
-# #         zip \
-# #         nano \
-# #         vim-tiny \
-# #         less \
-# #         jq \
-# #         lsb-release \
-# #         apt-transport-https \
-# #         dialog \
-# #         libc6 \
-# #         libgcc1 \
-# #         libgssapi-krb5-2 \
-# #         libicu[0-9][0-9] \
-# #         libstdc++6 \
-# #         zlib1g \
-# #         locales \
-# #         sudo \
-# #         ncdu \
-# #         software-properties-common \
-# #         man-db
-
-# # Install R
-# RUN apt-get install r-base r-base-dev -y
-# RUN apt-get install -f r-cran-emmeans r-cran-lmertest r-cran-performance r-cran-dplyr r-cran-tidyverse r-cran-geepack r-cran-ggplot2 -y
+RUN update-ca-certificates
 
 # RUN python3 -m pip install --upgrade pip
-# RUN python3 -m pip install setuptools radian statsmodels ipykernel pandas numpy matplotlib scikit-learn seaborn
+# RUN python3 -m pip install -r requirements.txt 
+
+RUN git clone --recursive https://github.com/andresgongora/synth-shell.git && cd synth-shell && echo i | ./setup.sh && cd ..
+RUN mv synth-shell-prompt.config ~/.config/synth-shell/
+
+# # Set the working directory in the container
+# WORKDIR /app
+
+# # Copy the current directory contents into the container at /app
+# COPY . /app
+
+# # Make port 80 available to the world outside this container
+# EXPOSE 80
+
+# # Define environment variable
+# ENV NAME World
+
+# # Run your app. Here you'll need to specify how your app is run.
+# CMD ["your_command_to_run_app"]
