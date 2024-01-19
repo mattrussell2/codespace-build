@@ -10,7 +10,9 @@
             "extensions": [                               
                 "reditorsupport.r",				                
                 "ms-toolsai.jupyter", 
-                "ms-python.python"
+                "ms-python.python",
+				"monokai.theme-monokai-pro-vscode",
+                "github.copilot"
             ]
         }
 	}
