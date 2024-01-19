@@ -1,0 +1,17 @@
+{
+	"name": "mrussell",
+	"image": "ghcr.io/mattrussell2/codespace-build:1.0.0",	
+	"customizations": {
+        "vscode": {
+            "settings": {
+		        "terminal.integrated.shell.linux": "/bin/bash",		
+		        "workbench.colorTheme": "Monokai Pro (Filter Machine)"
+            }, 
+            "extensions": [                               
+                "reditorsupport.r",				                
+                "ms-toolsai.jupyter", 
+                "ms-python.python"
+            ]
+        }
+	}
+}
