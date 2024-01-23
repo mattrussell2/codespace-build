@@ -6,4 +6,6 @@ And the `.devcontainer/devcontainer.json` file uses this package to build a code
 
 So in other words, copy the `.devcontainer` folder into your repo and modify `devcontainer.json` to your heart's content. 
 
-Then, creating a codespace from your repo should take ~90 seconds, with no need to pay for the prebuild space. 
+Then, creating a codespace from your repo should take ~two minutes, with no need to pay for the prebuild space. 
+
+You can also configure the Dockerfile and build your own package with it; then just upload it to dockerhub or ghcr.io and update the `image` field in the `devcontainer.json` file. 
