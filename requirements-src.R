@@ -3,7 +3,11 @@ pkgs <- c(
     'ggplot2',
     'see',
     'patchwork',
-    'glmmTMB'
+    'glmmTMB', 
+    'languageserver',
+    'corrr',
+    'ggcorrplot', 
+    'FactoMineR'
 )
 
 install.packages(pkgs, dependencies=TRUE)

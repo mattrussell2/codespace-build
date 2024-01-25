@@ -10,3 +10,4 @@ statsmodels
 statannotations
 pymer4
 ipykernel
+tqdm
