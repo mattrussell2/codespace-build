@@ -1,4 +1,4 @@
-This is effectively a prebuild for github codespaces. 
+This is a docker container with stuff I use pre-installed. 
 
 The package listed here: ghcr.io/mattrussell2/codespace-build:1.0.0 was built from the `Dockerfile` in the repo. 
 
