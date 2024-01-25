@@ -1,3 +1,8 @@
+options(repos = c(
+    CRAN = 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest'
+))
+
+
 pkgs <- c(
     'ez',
     'ggplot2',
@@ -10,4 +15,8 @@ pkgs <- c(
     'FactoMineR'
 )
 
-install.packages(pkgs, dependencies=TRUE)
+if (!requireNamespace("pak", quietly = TRUE)) {
+    install.packages("pak", repos = options()$repos)
+}
+
+pak::pkg_install(pkgs)

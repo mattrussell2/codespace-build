@@ -11,3 +11,4 @@ statannotations
 pymer4
 ipykernel
 tqdm
+pingouin
