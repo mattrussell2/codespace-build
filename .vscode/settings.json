@@ -1,0 +1,8 @@
+{
+    "r.lsp.promptToInstall": true,
+    "r.lsp.diagnostics": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "workbench.colorTheme": "Monokai Pro (Filter Machine)"
+}
