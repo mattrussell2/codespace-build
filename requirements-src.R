@@ -1,10 +1,8 @@
-options(repos = c(
-    CRAN = 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest'
-))
+# options(repos = c(
+#     CRAN = 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest'
+# ))
 
-
-pkgs <- c(
-    'ez',
+pkgs <- c(    
     'ggplot2',
     'see',
     'patchwork',
@@ -12,7 +10,9 @@ pkgs <- c(
     'languageserver',
     'corrr',
     'ggcorrplot', 
-    'FactoMineR'
+    'FactoMineR',
+    'tidyverse',
+    'ez'
 )
 
 if (!requireNamespace("pak", quietly = TRUE)) {
