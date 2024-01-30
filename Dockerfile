@@ -22,14 +22,14 @@ RUN apt-get install -y --no-install-recommends \
     cmake \
     bc \
     libgsl-dev \
+    libatlas-base-dev \
     r-base \
     r-base-dev \
     r-cran-lmertest \
     r-cran-performance \
     r-cran-dplyr \
-    r-cran-tidyverse \
     r-cran-geepack \    
-    r-cran-emmeans \    
+    r-cran-emmeans \
     r-cran-lme4 \
     locales && rm -rf /var/lib/apt/lists/*
 
