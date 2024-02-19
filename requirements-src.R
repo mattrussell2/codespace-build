@@ -12,7 +12,8 @@ pkgs <- c(
     'ggcorrplot', 
     'FactoMineR',
     'tidyverse',
-    'ez'
+    'ez',
+    'ARTool'
 )
 
 if (!requireNamespace("pak", quietly = TRUE)) {
