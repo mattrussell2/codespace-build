@@ -12,3 +12,4 @@ pymer4
 ipykernel
 tqdm
 pingouin
+rpy2

@@ -1,0 +1,9 @@
+// Place your key bindings in this file to override the defaults
+[
+    { "key": "alt+o", "command": "workbench.action.terminal.focus"},
+    {
+        "key": "alt+o",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    }
+]
