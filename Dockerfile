@@ -31,6 +31,8 @@ RUN apt-get install -y --no-install-recommends \
     r-cran-geepack \    
     r-cran-emmeans \
     r-cran-lme4 \
+    libfreetype-dev libfontconfig-dev libfribidi-dev libharfbuzz-dev \
+    libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev \
     locales && rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US.UTF-8 && \
