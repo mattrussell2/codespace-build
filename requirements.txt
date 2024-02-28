@@ -13,3 +13,4 @@ ipykernel
 tqdm
 pingouin
 rpy2
+mne

@@ -2,18 +2,19 @@
 #     CRAN = 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest'
 # ))
 
+# for some reason ARTool/FactoMineR installer fails to see emmeans with pak
+install.packages(c('ARTool', 'FactoMineR'), dependencies=TRUE)
+
 pkgs <- c(    
     'ggplot2',
     'see',
     'patchwork',
-    'glmmTMB', 
+    'glmmTMB',
     'languageserver',
     'corrr',
-    'ggcorrplot', 
-    'FactoMineR',
+    'ggcorrplot',
     'tidyverse',
-    'ez',
-    'ARTool'
+    'ez'
 )
 
 if (!requireNamespace("pak", quietly = TRUE)) {
@@ -21,3 +22,4 @@ if (!requireNamespace("pak", quietly = TRUE)) {
 }
 
 pak::pkg_install(pkgs)
+
