@@ -14,3 +14,5 @@ tqdm
 pingouin
 rpy2
 mne
+padasip
+pqdm
