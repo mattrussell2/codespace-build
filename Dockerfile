@@ -40,8 +40,8 @@ RUN apt-get install -y --no-install-recommends \
 RUN locale-gen en_US.UTF-8 && \
     update-locale LANG=en_US.UTF-8
 
-COPY requirements-src.R .
-RUN Rscript requirements-src.R
+# COPY requirements-src.R .
+# RUN Rscript requirements-src.R
 
 RUN update-ca-certificates
 

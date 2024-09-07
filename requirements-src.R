@@ -3,7 +3,7 @@
 # ))
 
 # for some reason ARTool/FactoMineR installer fails to see emmeans with pak
-install.packages(c('ARTool', 'FactoMineR'), dependencies=TRUE)
+# install.packages(c('ARTool', 'FactoMineR'), dependencies=TRUE)
 
 pkgs <- c(    
     'ggplot2',
